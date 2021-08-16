@@ -1,38 +1,85 @@
-.App {
+body {
+  background-color: lightgoldenrodyellow;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wrapper {
+    padding: 5px 20px;
+}
+/* The container */
+.container {
+  display: block;
+  position: absolute;
+  padding-right: 45px;
+  cursor: pointer;
+  font-size: 25px;
+   left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+ 
+  border-radius: 50%;
+}
+/* On mouse-over */
+.container:hover input ~ .checkmark {
+  background-color:gray;
+  pointer-events:fill;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Create the indicator  */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
 }
 
-.App-link {
-  color: #61dafb;
+/* Show the indicator  */
+.container input:checked ~ .checkmark:after {
+  display: block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+button{
+  width: 10%;
+  background-color:honeydew;
+  color: black;
+  padding: 10px 16px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: monospace;
+
+} 
+button:hover {
+  background-color:gray;
+  pointer-events:fill;
 }
